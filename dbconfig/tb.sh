@@ -20,7 +20,12 @@ do
             ;;
         2)
             read -p "enter row number to delete : " num
-            sed -i "$num d" $table
+            if [ "$num" == "1" ]; then
+                echo "Cannot delete header row!"
+            else
+                sed -i "$num d" $table
+                echo "Row deleted."
+            fi
             read -p "press anykey to back ... " x
             break
             ;;
